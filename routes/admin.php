@@ -8,6 +8,9 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\RoleUserController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\VendorVerificationRequestController;
+use App\Http\Controllers\Admin\VendorVerificationSettingController;
+use App\Models\VendorVerification;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest:admin')
@@ -62,4 +65,25 @@ Route::middleware('auth:admin')
         // admin settings routes
         Route::resource('settings', SettingController::class);
 
+
+
+        // vendor verification status update route
+        Route::put(
+            'vendor-verification-requests/update-status/{vendorVerification}',
+            [VendorVerificationRequestController::class, 'updateStatus']
+        )->name('vendor-verification-requests.update-status');
+
+        //http://multivendor.test/admin/vendor-verification-requests/update-status/1
+
+        // download file route
+        Route::get('download-file/{file}', [VendorVerificationRequestController::class, 'downloadFile'])
+            ->where('file', '.*')
+            ->name('download-file');
+
+        // vendor verification requests management routes
+        Route::resource('vendor-verification-requests', VendorVerificationRequestController::class);
+
+        // Vendor Verification Routes
+        Route::get('vendor-verification-settings', [VendorVerificationSettingController::class, 'index'])->name('vendor-verification-settings.index');
+        Route::put('vendor-verification-settings', [VendorVerificationSettingController::class, 'update'])->name('vendor-verification-settings.update');
     });

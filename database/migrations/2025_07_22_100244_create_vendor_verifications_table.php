@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('vendor_verifications', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->string('id_verification')->nullable();
+            $table->string('pan_verification')->nullable();
+            $table->string('irc_verification')->nullable();
+            $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
+            $table->text('rejection_reason')->nullable();
             $table->timestamps();
         });
     }

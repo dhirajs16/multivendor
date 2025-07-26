@@ -212,9 +212,9 @@
             </div>
         </div>
 
-
         <div class="collapse navbar-collapse" id="sidebar-menu">
             <ul class="navbar-nav pt-lg-3">
+                {{-- home button --}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.dashboard') }}">
                         <span
@@ -227,11 +227,12 @@
                     </a>
                 </li>
 
+                {{-- Layout dropdown --}}
                 <li class="nav-item active dropdown">
                     <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown"
                         data-bs-auto-close="false" role="button" aria-expanded="true">
                         <span
-                            class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/layout-2 -->
+                            class="nav-link-icon d-md-none d-lg-inline-block">
                             <i class="bi bi-grid-1x2"></i>
                         </span>
                         <span class="nav-link-title">
@@ -254,12 +255,12 @@
                     </div>
                 </li>
 
-
+                {{-- access mgmt dropdown --}}
                 <li class="nav-item active dropdown">
                     <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown"
                         data-bs-auto-close="false" role="button" aria-expanded="true">
                         <span
-                            class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/layout-2 -->
+                            class="nav-link-icon d-md-none d-lg-inline-block">
                             <i class="bi bi-sliders2-vertical"></i>
                         </span>
                         <span class="nav-link-title">
@@ -281,6 +282,35 @@
                     </div>
                 </li>
 
+                {{-- vendor Verification dropdown --}}
+                <li class="nav-item active dropdown">
+                    <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown"
+                        data-bs-auto-close="false" role="button" aria-expanded="true">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <i class="bi bi-person-check"></i>
+                        </span>
+                        <span class="nav-link-title">
+                            {{ __('Vendor Verification') }}
+
+                        </span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-menu-columns">
+                            <div class="dropdown-menu-column">
+                                <a class="dropdown-item" href="{{ route('admin.vendor-verification-settings.index') }}">
+                                    {{ __('Verification Settings') }}
+                                </a>
+                                <a class="dropdown-item" href="{{ route('admin.vendor-verification-requests.index') }}">
+                                    {{ __('Verification Requests') }}
+                                    <span class="badge badge-sm bg-yellow-lt text-uppercase ms-auto">{{ 1 }}</span>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                {{-- settings --}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.settings.index') }}">
                         <span

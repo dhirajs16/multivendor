@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('country')->nullable();
             $table->string('city')->nullable();
             $table->string('address')->nullable();
-            $table->string('shipping_address')->nullable();
+            $table->enum('user_type', ['vendor', 'customer'])->default('customer');
+            $table->boolean('vendor_verification')->default(false);
             $table->foreignId('level_id')->nullable();
             $table->foreignId('withdraw_method_id')->nullable();
             $table->string('password');

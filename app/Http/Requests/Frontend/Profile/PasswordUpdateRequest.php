@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Requests\Profile;
+namespace App\Http\Requests\Frontend\Profile;
 
 use App\Services\NotificationService;
 use Illuminate\Foundation\Http\FormRequest;
 
 class PasswordUpdateRequest extends FormRequest
 {
-    /** 
+    /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool

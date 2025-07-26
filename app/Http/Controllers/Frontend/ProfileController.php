@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Profile\PasswordUpdateRequest;
-use App\Http\Requests\Profile\ProfileUpdateRequest;
+use App\Http\Requests\Frontend\Profile\PasswordUpdateRequest;
+use App\Http\Requests\Frontend\Profile\ProfileUpdateRequest;
 use App\Services\NotificationService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;

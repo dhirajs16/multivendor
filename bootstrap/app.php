@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Middleware\Authenticate;
+use App\Http\Middleware\IsVendorMiddleware;
 use App\Http\Middleware\RedirectIfAuthenticated;
+use App\Http\Middleware\VendorVerificationMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -19,6 +21,8 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'guest' => RedirectIfAuthenticated::class,
             'auth' => Authenticate::class,
+            'vendor.verification' => VendorVerificationMiddleware::class,
+            'isVendor' => IsVendorMiddleware::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

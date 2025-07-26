@@ -45,6 +45,18 @@
                                 <span class="text">{{ __('Table Design') }}</span>
                             </a>
                         </li>
+
+                        @if(Auth::user()->user_type === "vendor")
+                        <li class="sidebar-list__item">
+                            <a href="dashboard-table" class="sidebar-list__link">
+                                <span class="sidebar-list__icon">
+                                    <i class="ti ti-list-details"></i>
+                                </span>
+                                <span class="text">{{ __('Your Services') }}</span>
+                            </a>
+                        </li>
+                        @endif
+
                         <li class="sidebar-list__item">
                             <a href="dashboard-form.html" class="sidebar-list__link">
                                 <span class="sidebar-list__icon">
