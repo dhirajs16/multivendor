@@ -1,0 +1,10 @@
+
+
+
+.truncate {
+  white-space: nowrap;         /* Prevent text from wrapping to the next line */
+  overflow: hidden;            /* Hide the overflowing text */
+  text-overflow: ellipsis;     /* Show "..." at the end when text is too long */
+  max-width: 15ch;             /* Limit width roughly to 20 characters */
+  display: inline-block;       /* Needed to apply width */
+}

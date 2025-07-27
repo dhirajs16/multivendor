@@ -217,8 +217,7 @@
                 {{-- home button --}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.dashboard') }}">
-                        <span
-                            class="nav-link-icon d-md-none d-lg-inline-block">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
                             <i class="bi bi-house-door"></i>
                         </span>
                         <span class="nav-link-title">
@@ -231,8 +230,7 @@
                 <li class="nav-item active dropdown">
                     <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown"
                         data-bs-auto-close="false" role="button" aria-expanded="true">
-                        <span
-                            class="nav-link-icon d-md-none d-lg-inline-block">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
                             <i class="bi bi-grid-1x2"></i>
                         </span>
                         <span class="nav-link-title">
@@ -255,12 +253,26 @@
                     </div>
                 </li>
 
+
+                {{-- category menu --}}
+                @if (Auth::guard('admin')->user()->hasAnyRole(['Category Manager']) || Auth::guard('admin')->user()->hasAnyRole(['super admin']))
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.categories.index') }}">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <i class="bi bi-house-door"></i>
+                            </span>
+                            <span class="nav-link-title">
+                                {{ __('Categories') }}
+                            </span>
+                        </a>
+                    </li>
+                @endif
+
                 {{-- access mgmt dropdown --}}
                 <li class="nav-item active dropdown">
                     <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown"
                         data-bs-auto-close="false" role="button" aria-expanded="true">
-                        <span
-                            class="nav-link-icon d-md-none d-lg-inline-block">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
                             <i class="bi bi-sliders2-vertical"></i>
                         </span>
                         <span class="nav-link-title">
@@ -297,12 +309,15 @@
                     <div class="dropdown-menu">
                         <div class="dropdown-menu-columns">
                             <div class="dropdown-menu-column">
-                                <a class="dropdown-item" href="{{ route('admin.vendor-verification-settings.index') }}">
+                                <a class="dropdown-item"
+                                    href="{{ route('admin.vendor-verification-settings.index') }}">
                                     {{ __('Verification Settings') }}
                                 </a>
-                                <a class="dropdown-item" href="{{ route('admin.vendor-verification-requests.index') }}">
+                                <a class="dropdown-item"
+                                    href="{{ route('admin.vendor-verification-requests.index') }}">
                                     {{ __('Verification Requests') }}
-                                    <span class="badge badge-sm bg-yellow-lt text-uppercase ms-auto">{{ 1 }}</span>
+                                    <span
+                                        class="badge badge-sm bg-yellow-lt text-uppercase ms-auto">{{ 1 }}</span>
                                 </a>
 
                             </div>
@@ -313,8 +328,7 @@
                 {{-- settings --}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.settings.index') }}">
-                        <span
-                            class="nav-link-icon d-md-none d-lg-inline-block">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
                             <i class="bi bi-gear"></i>
                         </span>
                         <span class="nav-link-title">

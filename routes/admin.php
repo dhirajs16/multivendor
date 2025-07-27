@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\Auth\NewPasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\RoleController;
@@ -66,24 +67,29 @@ Route::middleware('auth:admin')
         Route::resource('settings', SettingController::class);
 
 
-
         // vendor verification status update route
         Route::put(
             'vendor-verification-requests/update-status/{vendorVerification}',
             [VendorVerificationRequestController::class, 'updateStatus']
         )->name('vendor-verification-requests.update-status');
 
-        //http://multivendor.test/admin/vendor-verification-requests/update-status/1
 
         // download file route
         Route::get('download-file/{file}', [VendorVerificationRequestController::class, 'downloadFile'])
             ->where('file', '.*')
             ->name('download-file');
 
+
         // vendor verification requests management routes
         Route::resource('vendor-verification-requests', VendorVerificationRequestController::class);
+
 
         // Vendor Verification Routes
         Route::get('vendor-verification-settings', [VendorVerificationSettingController::class, 'index'])->name('vendor-verification-settings.index');
         Route::put('vendor-verification-settings', [VendorVerificationSettingController::class, 'update'])->name('vendor-verification-settings.update');
+
+        
+        // Category management routes
+        Route::resource('categories', CategoryController::class);
+
     });

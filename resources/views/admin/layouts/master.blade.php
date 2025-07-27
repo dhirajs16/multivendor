@@ -12,7 +12,7 @@
     <link href="{{ asset('assets/admin/css/tabler-flags.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/admin/css/tabler-payments.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/admin/css/tabler-vendors.min.css') }}" rel="stylesheet" />
-    {{-- <link rel="stylesheet" href="{{ asset('assets/admin/css/admin.css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/admin.css') }}">
 
 
     {{-- bootstrap icon cdn --}}
