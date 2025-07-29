@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\RoleUserController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\VendorVerificationRequestController;
 use App\Http\Controllers\Admin\VendorVerificationSettingController;
@@ -88,8 +89,11 @@ Route::middleware('auth:admin')
         Route::get('vendor-verification-settings', [VendorVerificationSettingController::class, 'index'])->name('vendor-verification-settings.index');
         Route::put('vendor-verification-settings', [VendorVerificationSettingController::class, 'update'])->name('vendor-verification-settings.update');
 
-        
+
         // Category management routes
         Route::resource('categories', CategoryController::class);
 
+        // service management routes
+        Route::get('services/vendor-list', [ServiceController::class, 'vendorList'])->name('services.vendor-list');
+        Route::get('services/vendor-services/{vendor}', [ServiceController::class, 'vendorServicesList'])->name('vendor.services');
     });

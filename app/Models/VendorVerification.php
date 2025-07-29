@@ -13,6 +13,9 @@ class VendorVerification extends Model
         'id_verification',
         'pan_verification',
         'irc_verification',
+        'status',
+        'service_category_id',
+        'rejection_reason',
     ];
 
     function user(): BelongsTo {

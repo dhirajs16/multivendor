@@ -51,6 +51,12 @@
                                                 </td>
                                             </tr>
                                             <tr>
+                                                <th>{{ __('Service Category') }}</th>
+                                                <td>
+                                                    <span class="badge bg-blue-lt">{{ $vendorVerificationRequest->service_category_id }}</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
                                                 <th>{{ __('Status') }}</th>
                                                 <td>
                                                     <span
@@ -87,6 +93,8 @@
                                                         </select>
                                                         <x-input-error :messages="$errors->get('status')" class="mt-2" />
                                                         </td>
+
+                                                        <input type="number" hidden name="service_category_id" value="{{ $vendorVerificationRequest->service_category_id }}">
                                                     </form>
                                                 </tr>
                                             </tbody>

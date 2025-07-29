@@ -37,10 +37,11 @@ class VendorVerificationRequestController extends Controller
      */
     public function updateStatus(Request $request, VendorVerification $vendorVerification)
     {
-        // dd($request->all());
         $request->validate([
             'status' => ['required', 'in:pending,approved,rejected'],
+            'service_category_id' => ['required', 'exists:categories,id'],
         ]);
+        // dd($request->all());
 
         $vendorVerification->status = $request->input('status');
         $vendorVerification->save();
@@ -48,6 +49,7 @@ class VendorVerificationRequestController extends Controller
         if ($vendorVerification->status === 'approved') {
             $vendorVerification->user->vendor_verification = true;
             $vendorVerification->user->user_type = 'vendor';
+            $vendorVerification->user->service_category_id = $request->input('service_category_id');
             $vendorVerification->user->save();
         } else {
             $vendorVerification->user->vendor_verification = false;

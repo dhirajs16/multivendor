@@ -47,13 +47,8 @@ class CategoryController extends Controller implements HasMiddleware
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(StoreCategoryRequest $request): RedirectResponse
     {
-
-
-
-
-        // dd($request->all());
 
         $category = new Category();
         $category->name = $request->name;

@@ -77,6 +77,19 @@
                                 <x-input-error :messages="$errors->get('irc_verification')" class="mt-2" />
                             </div>
 
+                            {{-- service category --}}
+                            <div class="col-12">
+                                <label class="form-label">{{ __('Service Category') }}<span
+                                        class="text-danger">*</span></label>
+                                <select name="service_category_id" id="service_category_id" class="form-select" required>
+                                    <option value="" disabled selected>Select</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                                <x-input-error :messages="$errors->get('service_category_id')" class="mt-2" />
+                            </div>
+
 
 
                             {{-- submit button --}}

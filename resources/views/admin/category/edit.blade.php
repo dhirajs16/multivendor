@@ -29,7 +29,7 @@
                                         @enderror
                                         @if ($category->avatar)
                                             <div class="mt-2">
-                                                <img src="{{ $category->avatar }}" alt="Avatar" class="img-thumbnail"
+                                                <img src="{{ asset($category->avatar) }}" alt="Avatar" class="img-thumbnail"
                                                     style="max-width: 120px;">
                                             </div>
                                         @endif

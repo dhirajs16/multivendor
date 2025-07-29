@@ -108,17 +108,17 @@
                                 <div class="tab-pane fade show active" id="pills-personalInfo" role="tabpanel"
                                     aria-labelledby="pills-personalInfo-tab" tabindex="0">
                                     {{-- Person Info Update form --}}
-                                    @include('frontend.profile.personal-info')
+                                    @include('frontend.dashboard.profile.personal-info')
                                 </div>
                                 <div class="tab-pane fade" id="pills-payouts" role="tabpanel"
                                     aria-labelledby="pills-payouts-tab" tabindex="0">
                                     {{-- Payouts form --}}
-                                    @include('frontend.profile.payouts')
+                                    @include('frontend.dashboard.profile.payouts')
                                 </div>
                                 <div class="tab-pane fade" id="pills-changePassword" role="tabpanel"
                                     aria-labelledby="pills-changePassword-tab" tabindex="0">
                                     {{-- Update Password form --}}
-                                    @include('frontend.profile.change-password')
+                                    @include('frontend.dashboard.profile.change-password')
                                 </div>
                             </div>
                         </div>

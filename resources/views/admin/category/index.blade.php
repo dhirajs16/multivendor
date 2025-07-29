@@ -28,10 +28,11 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            {{-- @dd($categories) --}}
                                             @foreach ($categories as $category)
                                             <tr>
                                                     <td>
-                                                        <img src="{{ $category->avatar }}" alt="avatar" width="50px">
+                                                        <img src="{{ asset($category->avatar) }}" alt="avatar" width="50px" class="rounded">
                                                     </td>
                                                     <td>{{ $category->name }}</td>
                                                     <td>

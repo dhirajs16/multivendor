@@ -19,13 +19,17 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
+        'avatar',
+        'user_type',
         'name',
         'email',
         'password',
         'country',
         'city',
         'address',
-        'shipping_address'
+        'service_category_id',
+        'vendor_verification',
+        'vendor_rating',
     ];
 
     /**
@@ -55,5 +59,15 @@ class User extends Authenticatable
     function vendorVerifications(): HasMany
     {
         return $this->hasMany(VendorVerification::class)->orderBy('created_at', 'desc');
+    }
+
+    function services(): HasMany
+    {
+        return $this->hasMany(Service::class);
+    }
+
+    function serviceCategory()
+    {
+        return $this->belongsTo(Category::class, 'service_category_id');
     }
 }

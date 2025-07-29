@@ -22,11 +22,17 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->enum('user_type', ['vendor', 'customer'])->default('customer');
             $table->boolean('vendor_verification')->default(false);
+            $table->foreignId('service_category_id')->nullable()->constrained('categories')->nullOnDelete();
+            // Additional fields for vendor
+            $table->float('vendor_rating', 2, 1)->default(0.0)->comment('Average rating for vendor, 0.0 to 5.0');
             $table->foreignId('level_id')->nullable();
             $table->foreignId('withdraw_method_id')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+
+
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
@@ -43,6 +49,8 @@ return new class extends Migration
             $table->longText('payload');
             $table->integer('last_activity')->index();
         });
+
+
     }
 
     /**

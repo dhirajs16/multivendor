@@ -255,7 +255,8 @@
 
 
                 {{-- category menu --}}
-                @if (Auth::guard('admin')->user()->hasAnyRole(['Category Manager']) || Auth::guard('admin')->user()->hasAnyRole(['super admin']))
+                @if (Auth::guard('admin')->user()->hasAnyPermission(['manage categories']) ||
+                        Auth::guard('admin')->user()->hasAnyRole(['super admin']))
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.categories.index') }}">
                             <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -268,31 +269,46 @@
                     </li>
                 @endif
 
-                {{-- access mgmt dropdown --}}
-                <li class="nav-item active dropdown">
-                    <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown"
-                        data-bs-auto-close="false" role="button" aria-expanded="true">
+                {{-- vendor & Services  --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.services.vendor-list') }}">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
-                            <i class="bi bi-sliders2-vertical"></i>
+                            <i class="bi bi-house-door"></i>
                         </span>
                         <span class="nav-link-title">
-                            {{ __('Access Management') }}
+                            {{ __('Vendor & Services') }}
                         </span>
                     </a>
-                    <div class="dropdown-menu">
-                        <div class="dropdown-menu-columns">
-                            <div class="dropdown-menu-column">
-                                <a class="dropdown-item" href="{{ route('admin.role-users.index') }}">
-                                    {{ __('Role Users') }}
-                                </a>
-                                <a class="dropdown-item" href="{{ route('admin.roles.index') }}">
-                                    {{ __('Roles & Permissions') }}
-                                </a>
+                </li>
 
+                {{-- access mgmt dropdown --}}
+                @if (Auth::guard('admin')->user()->hasAnyPermission(['access management']) ||
+                        Auth::guard('admin')->user()->hasAnyRole(['super admin']))
+                    <li class="nav-item active dropdown">
+                        <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown"
+                            data-bs-auto-close="false" role="button" aria-expanded="true">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <i class="bi bi-sliders2-vertical"></i>
+                            </span>
+                            <span class="nav-link-title">
+                                {{ __('Access Management') }}
+                            </span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-menu-columns">
+                                <div class="dropdown-menu-column">
+                                    <a class="dropdown-item" href="{{ route('admin.role-users.index') }}">
+                                        {{ __('Role Users') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('admin.roles.index') }}">
+                                        {{ __('Roles & Permissions') }}
+                                    </a>
+
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </li>
+                    </li>
+                @endif
 
                 {{-- vendor Verification dropdown --}}
                 <li class="nav-item active dropdown">
@@ -309,10 +325,11 @@
                     <div class="dropdown-menu">
                         <div class="dropdown-menu-columns">
                             <div class="dropdown-menu-column">
-                                <a class="dropdown-item"
-                                    href="{{ route('admin.vendor-verification-settings.index') }}">
-                                    {{ __('Verification Settings') }}
-                                </a>
+                                {{-- <a class="dropdown-item"
+                                        href="{{ route('admin.vendor-verification-settings.index') }}">
+                                        {{ __('Verification Settings') }}
+                                    </a> --}}
+
                                 <a class="dropdown-item"
                                     href="{{ route('admin.vendor-verification-requests.index') }}">
                                     {{ __('Verification Requests') }}

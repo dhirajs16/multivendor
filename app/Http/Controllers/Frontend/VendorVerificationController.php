@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Frontend\VendorVerification\VendorVerificationStoreRequest;
+use App\Models\Category;
 use App\Models\VendorVerification;
 use App\Services\NotificationService;
 use App\Traits\FileUpload;
@@ -17,7 +18,8 @@ class VendorVerificationController extends Controller
 
     public function index(): View
     {
-        return view('frontend.pages.vendor-verification');
+        $categories = Category::all();
+        return view('frontend.pages.vendor-verification', compact('categories'));
     }
 
     public function store(VendorVerificationStoreRequest $request): RedirectResponse
@@ -26,6 +28,8 @@ class VendorVerificationController extends Controller
 
         $vendorVerification = new VendorVerification();
         $vendorVerification->user_id = Auth::guard('web')->user()->id;
+
+        $vendorVerification->service_category_id = $request->service_category_id;
 
         if ($request->hasFile('id_verification')) {
             // Delete old ID verification if exists

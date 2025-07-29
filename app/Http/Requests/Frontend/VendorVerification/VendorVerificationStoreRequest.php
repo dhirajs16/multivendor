@@ -25,6 +25,20 @@ class VendorVerificationStoreRequest extends FormRequest
             'id_verification' => ['required', 'file', 'mimes:jpg,jpeg,png,pdf', 'max:2048'],
             'pan_verification' => ['required', 'file', 'mimes:jpg,jpeg,png,pdf', 'max:2048'],
             'irc_verification' => ['required', 'file', 'mimes:jpg,jpeg,png,pdf', 'max:2048'],
+            'service_category_id' => ['required', 'integer', 'exists:categories,id'],
+        ];
+    }
+
+    /**
+     * Get the custom validation messages that apply to the request.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'service_category_id.exists' => 'The selected service category is invalid or does not exist.',
+            'service_category_id.required' => 'Please select a service category.',
         ];
     }
 }

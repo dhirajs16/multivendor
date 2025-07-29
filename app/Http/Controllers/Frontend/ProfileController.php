@@ -19,7 +19,7 @@ class ProfileController extends Controller
     public function index(): View
     {
         $user = Auth::user();
-        return view('frontend.profile.index', compact('user'));
+        return view('frontend.dashboard.profile.index', compact('user'));
     }
 
     public function update(ProfileUpdateRequest $request): RedirectResponse
@@ -28,7 +28,9 @@ class ProfileController extends Controller
 
         if ($request->hasFile('avatar')) {
             // Delete old avatar if exists
-            $this->handleDeleteFile($user->avatar);
+            if ($user->avatar) {
+                $this->handleDeleteFile($user->avatar);
+            }
             $avatarPath = $this->handleUploadFile($request->avatar);
             $user->avatar = $avatarPath;
         }
@@ -37,7 +39,6 @@ class ProfileController extends Controller
         $user->country = $request->country;
         $user->city = $request->city;
         $user->address = $request->address;
-        $user->shipping_address = $request->shipping_address;
         $user->save();
 
         NotificationService::UPDATED("Profile Updated Successfully.");
