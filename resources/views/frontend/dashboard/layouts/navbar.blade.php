@@ -1,6 +1,6 @@
 <div class="dashboard-nav bg-white flx-between gap-md-3 gap-2">
     <div class="dashboard-nav__left flx-align gap-md-3 gap-2">
-        <button type="button" class="icon-btn bar-icon text-heading bg-gray-seven flx-center">
+        <button id="hamburgerButton" type="button" class="icon-btn bar-icon text-heading bg-gray-seven flx-center">
             <i class="las la-bars"></i>
         </button>
         <button type="button" class="icon-btn arrow-icon text-heading bg-gray-seven flx-center">
@@ -22,7 +22,7 @@
                 <div class="user-profile">
                     <button class="user-profile__button flex-align">
                         <span class="user-profile__thumb">
-                            <img src="assets/images/thumbs/user-profile.png" class="cover-img" alt="">
+                            <img src="{{ asset(Auth::user()->avatar) }}" class="cover-img" alt="">
                         </span>
                     </button>
                     <ul class="user-profile-dropdown">
@@ -69,7 +69,7 @@
                     </ul>
                 </div>
 
-                <div class="language-select flx-align select-has-icon">
+                {{-- <div class="language-select flx-align select-has-icon">
                     <img src="assets/images/icons/globe.svg" alt="" class="globe-icon white-version">
                     <img src="assets/images/icons/globe-white.svg" alt="" class="globe-icon dark-version">
                     <select class="select py-0 ps-2 border-0 fw-500">
@@ -78,7 +78,7 @@
                         <option value="3">Eur</option>
                         <option value="4">Urd</option>
                     </select>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

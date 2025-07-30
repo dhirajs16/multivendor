@@ -37,8 +37,18 @@
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
+        @if (Auth::guard('web')->check())
+            <a class="" href="{{ route('dashboard') }}">
+                @if (Auth::user()->avatar)
+                    <img src="{{ Auth::user()->avatar }}" width="40px" alt="" class="rounded-circle">
+                @else
+                    <img src="{{ asset('defaults/avatar.png') }}" width="40px" alt="" class="rounded-circle">
+                @endif
+            </a>
+        @else
+            <a class="btn-getstarted" href="{{ route('login') }}">Get Started</a>
+        @endif
 
-        <a class="btn-getstarted" href="{{ route('login') }}">Get Started</a>
 
     </div>
 </header>

@@ -24,7 +24,7 @@ class ServiceController extends Controller
 
         if ($services->isEmpty()) {
             NotificationService::ERROR('No services found for this vendor.');
-            
+
         }
 
         return view('frontend.dashboard.services.index', compact('vendor', 'services'));
@@ -45,14 +45,17 @@ class ServiceController extends Controller
     public function store(StoreServiceRequest $request)
     {
         $service = new Service();
+
+
         if ($request->hasFile('avatar')) {
             // Delete old avatar if exists
             if ($service->avatar) {
                 $this->handleDeleteFile($service->avatar);
             }
-            $avatarPath = $this->handleUploadFile($request->file('avatar'));
+            $avatarPath = $this->handleUploadFile($request->avatar);
             $service->avatar = $avatarPath;
         }
+        
         $service->name = $request->name;
         $service->description = $request->description;
         $service->category_id = $request->category_id;
@@ -99,7 +102,20 @@ class ServiceController extends Controller
             return redirect()->back();
         }
 
-        $service->update($request->validated());
+        $data = $request->validated();
+        unset($data['avatar']); // Exclude avatar from mass update
+        $service->update($data);
+
+        // Handle avatar separately if uploaded
+        if ($request->hasFile('avatar')) {
+            // Delete old avatar if exists
+            if ($service->avatar) {
+            $this->handleDeleteFile($service->avatar);
+            }
+            $avatarPath = $this->handleUploadFile($request->avatar);
+            $service->avatar = $avatarPath;
+            $service->save();
+        }
 
         NotificationService::UPDATED("Service updated successfully.");
         return redirect()->route('vendor-services.index', $service->vendor_id);

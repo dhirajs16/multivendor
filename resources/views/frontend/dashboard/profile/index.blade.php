@@ -9,12 +9,12 @@
                         <div class="profile-info__inner mb-40 text-center">
 
                             <div class="avatar-upload mb-24">
-                                <div class="avatar-edit">
+                                {{-- <div class="avatar-edit">
                                     <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg">
                                     <label for="imageUpload">
                                         <img src="assets/images/icons/camera.svg" alt="">
                                     </label>
-                                </div>
+                                </div> --}}
                                 <div class="avatar-preview" style="background-image: url({{ $user->avatar }})">
                                     <div id="imagePreview">
                                     </div>
@@ -22,7 +22,7 @@
                             </div>
 
                             <h5 class="profile-info__name mb-1">{{ $user->name }}</h5>
-                            <span class="profile-info__designation font-14">{{ __('Customer') }}</span>
+                            <span class="profile-info__designation font-14">{{ $user->user_type }}</span>
                         </div>
 
                         <ul class="profile-info-list">

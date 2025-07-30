@@ -7,7 +7,12 @@
         <section id="hero" class="hero section"
             style="background-image: url({{ asset('assets/frontend/home/img/hero.svg') }}); height: 100svh;">
 
-            <a href="{{ route('login') }}" id="hero-button">Get Started</a>
+            @if (Auth::guard('web')->check())
+                <a href="{{ route('dashboard') }}" id="hero-button">Dashboard</a>
+            @else
+                <a href="{{ route('login') }}" id="hero-button">Get Started</a>
+            @endif
+
 
         </section><!-- /Hero Section -->
 
@@ -21,7 +26,10 @@
                     <div class="col-xl-5" data-aos="fade-up" data-aos-delay="200">
                         <span class="about-meta">WHY CHOOSE US</span>
                         <h2 class="about-title">Your Trusted Home Service Partner in Birgunj</h2>
-                        <p class="about-description">SewaGunj is Birgunj's premier online service platform, connecting residents with skilled professionals for all their home service needs. We're committed to making your life easier by providing reliable, affordable, and high-quality services right at your doorstep.</p>
+                        <p class="about-description">SewaGunj is Birgunj's premier online service platform, connecting
+                            residents with skilled professionals for all their home service needs. We're committed to making
+                            your life easier by providing reliable, affordable, and high-quality services right at your
+                            doorstep.</p>
 
                         <div class="row feature-list-wrapper">
                             <h2 class="about-title">Our Services Include:</h2>
@@ -120,12 +128,16 @@
                             <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
                                 <h3>Service at Your Fingertips</h3>
                                 <p class="fst-italic">
-                                    Get your home services booked with just a few taps, without the hassle of searching for reliable providers.
+                                    Get your home services booked with just a few taps, without the hassle of searching for
+                                    reliable providers.
                                 </p>
                                 <ul>
-                                    <li><i class="bi bi-check2-all"></i> <span>Easy online booking system available 24/7</span></li>
-                                    <li><i class="bi bi-check2-all"></i> <span>Services available at your preferred time</span></li>
-                                    <li><i class="bi bi-check2-all"></i> <span>No more waiting in queues or making multiple phone calls</span></li>
+                                    <li><i class="bi bi-check2-all"></i> <span>Easy online booking system available
+                                            24/7</span></li>
+                                    <li><i class="bi bi-check2-all"></i> <span>Services available at your preferred
+                                            time</span></li>
+                                    <li><i class="bi bi-check2-all"></i> <span>No more waiting in queues or making multiple
+                                            phone calls</span></li>
                                 </ul>
                             </div>
                             <div class="col-lg-6 order-1 order-lg-2 text-center">
@@ -143,9 +155,12 @@
                                     We maintain high standards by thoroughly vetting all our service professionals.
                                 </p>
                                 <ul>
-                                    <li><i class="bi bi-check2-all"></i> <span>Verified and experienced professionals</span></li>
-                                    <li><i class="bi bi-check2-all"></i> <span>Quality materials and tools used for all services</span></li>
-                                    <li><i class="bi bi-check2-all"></i> <span>Consistent service standards across all providers</span></li>
+                                    <li><i class="bi bi-check2-all"></i> <span>Verified and experienced professionals</span>
+                                    </li>
+                                    <li><i class="bi bi-check2-all"></i> <span>Quality materials and tools used for all
+                                            services</span></li>
+                                    <li><i class="bi bi-check2-all"></i> <span>Consistent service standards across all
+                                            providers</span></li>
                                 </ul>
                             </div>
                             <div class="col-lg-6 order-1 order-lg-2 text-center">
@@ -157,12 +172,15 @@
 
                     <div class="tab-pane fade" id="features-tab-3">
                         <div class="row">
-                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+                            <div
+                                class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
                                 <h3>Service You Can Trust</h3>
                                 <ul>
                                     <li><i class="bi bi-check2-all"></i> <span>On-time service guaranteed</span></li>
-                                    <li><i class="bi bi-check2-all"></i> <span>Transparent pricing with no hidden charges</span></li>
-                                    <li><i class="bi bi-check2-all"></i> <span>Customer satisfaction is our top priority</span></li>
+                                    <li><i class="bi bi-check2-all"></i> <span>Transparent pricing with no hidden
+                                            charges</span></li>
+                                    <li><i class="bi bi-check2-all"></i> <span>Customer satisfaction is our top
+                                            priority</span></li>
                                 </ul>
                                 <p class="fst-italic">
                                     We stand behind our work with a satisfaction guarantee for all services provided.
@@ -246,7 +264,8 @@
                             </div>
                             <div>
                                 <h3>Home Repair</h3>
-                                <p>From minor fixes to major renovations, our skilled handymen can handle all your home repair needs with quality workmanship.</p>
+                                <p>From minor fixes to major renovations, our skilled handymen can handle all your home
+                                    repair needs with quality workmanship.</p>
                                 <a href="service-details.html" class="read-more">Read More <i
                                         class="bi bi-arrow-right"></i></a>
                             </div>
@@ -260,7 +279,8 @@
                             </div>
                             <div>
                                 <h3>Cleaning Services</h3>
-                                <p>Professional cleaning services for your home or office, including deep cleaning, regular maintenance, and specialized cleaning.</p>
+                                <p>Professional cleaning services for your home or office, including deep cleaning, regular
+                                    maintenance, and specialized cleaning.</p>
                                 <a href="service-details.html" class="read-more">Read More <i
                                         class="bi bi-arrow-right"></i></a>
                             </div>
@@ -274,7 +294,8 @@
                             </div>
                             <div>
                                 <h3>Plumbing</h3>
-                                <p>Expert plumbing solutions for leaks, clogs, installations, and maintenance by certified professionals.</p>
+                                <p>Expert plumbing solutions for leaks, clogs, installations, and maintenance by certified
+                                    professionals.</p>
                                 <a href="service-details.html" class="read-more">Read More <i
                                         class="bi bi-arrow-right"></i></a>
                             </div>
@@ -288,7 +309,8 @@
                             </div>
                             <div>
                                 <h3>Electrical Services</h3>
-                                <p>Safe and reliable electrical work including wiring, repairs, installations, and maintenance by licensed electricians.</p>
+                                <p>Safe and reliable electrical work including wiring, repairs, installations, and
+                                    maintenance by licensed electricians.</p>
                                 <a href="service-details.html" class="read-more">Read More <i
                                         class="bi bi-arrow-right"></i></a>
                             </div>
@@ -316,8 +338,8 @@
 
                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
                         <div class="testimonial-item">
-                            <img src="{{ asset('assets/frontend/home/img/dp.png') }}"
-                                class="testimonial-img" alt="">
+                            <img src="{{ asset('assets/frontend/home/img/dp.png') }}" class="testimonial-img"
+                                alt="">
                             <h3>Rajesh Yadav</h3>
                             <h4>Adarsh Nagar Resident</h4>
                             <div class="stars">
@@ -327,7 +349,9 @@
                             </div>
                             <p>
                                 <i class="bi bi-quote quote-icon-left"></i>
-                                <span>I needed urgent plumbing help when my kitchen pipe burst. SewaGunj sent a professional within an hour who fixed the issue perfectly. Their service is truly reliable and saved me from a major mess!</span>
+                                <span>I needed urgent plumbing help when my kitchen pipe burst. SewaGunj sent a professional
+                                    within an hour who fixed the issue perfectly. Their service is truly reliable and saved
+                                    me from a major mess!</span>
                                 <i class="bi bi-quote quote-icon-right"></i>
                             </p>
                         </div>
@@ -335,8 +359,8 @@
 
                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
                         <div class="testimonial-item">
-                            <img src="{{ asset('assets/frontend/home/img/dp.png') }}"
-                                class="testimonial-img" alt="">
+                            <img src="{{ asset('assets/frontend/home/img/dp.png') }}" class="testimonial-img"
+                                alt="">
                             <h3>Priya Sharma</h3>
                             <h4>Golbazar Resident</h4>
                             <div class="stars">
@@ -346,7 +370,9 @@
                             </div>
                             <p>
                                 <i class="bi bi-quote quote-icon-left"></i>
-                                <span>The home cleaning service from SewaGunj transformed my house! The team was punctual, thorough, and left every corner sparkling clean. I've already booked them for monthly service.</span>
+                                <span>The home cleaning service from SewaGunj transformed my house! The team was punctual,
+                                    thorough, and left every corner sparkling clean. I've already booked them for monthly
+                                    service.</span>
                                 <i class="bi bi-quote quote-icon-right"></i>
                             </p>
                         </div>
@@ -411,7 +437,8 @@
                 <div class="row content justify-content-center align-items-center position-relative">
                     <div class="col-lg-8 mx-auto text-center">
                         <h2 class="display-4 mb-4">Ready to experience hassle-free home services?</h2>
-                        <p class="mb-4">Join thousands of Birgunj residents who trust SewaGunj for their home service needs. Book your service today and let our professionals take care of the rest!</p>
+                        <p class="mb-4">Join thousands of Birgunj residents who trust SewaGunj for their home service
+                            needs. Book your service today and let our professionals take care of the rest!</p>
                         <a href="{{ route('register') }}" class="btn btn-cta">Book a Service Now</a>
                     </div>
                 </div>
@@ -435,7 +462,8 @@
                     <div class="col-lg-5">
                         <div class="info-box" data-aos="fade-up" data-aos-delay="200">
                             <h3>Our Information</h3>
-                            <p>We're committed to providing excellent service and support to our customers in Birgunj and surrounding areas.</p>
+                            <p>We're committed to providing excellent service and support to our customers in Birgunj and
+                                surrounding areas.</p>
 
                             <div class="info-item" data-aos="fade-up" data-aos-delay="300">
                                 <div class="icon-box">
