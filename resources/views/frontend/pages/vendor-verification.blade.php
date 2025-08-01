@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-
+@section('title', 'Vendor Verification')
 @section('content')
     <div class="container" style="padding-top: 12svh">
         <div class="row">

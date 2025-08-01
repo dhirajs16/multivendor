@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Frontend\Services\StoreServiceRequest;
 use App\Http\Requests\Frontend\Services\UpdateServiceRequest;
+use App\Models\Category;
 use App\Models\Service;
 use App\Models\User;
 use App\Services\NotificationService;
 use App\Traits\FileUpload;
-use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
@@ -55,7 +55,7 @@ class ServiceController extends Controller
             $avatarPath = $this->handleUploadFile($request->avatar);
             $service->avatar = $avatarPath;
         }
-        
+
         $service->name = $request->name;
         $service->description = $request->description;
         $service->category_id = $request->category_id;
@@ -71,9 +71,16 @@ class ServiceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Category $category)
     {
-        //
+        // dd($category);
+        $services = Service::where('category_id', $category->id)->get();
+
+        if ($services->isEmpty()) {
+            NotificationService::ERROR('No services found for this category.');
+        }
+
+        return view('frontend.pages.list-services', compact('category', 'services'));
     }
 
     /**

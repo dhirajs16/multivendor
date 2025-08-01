@@ -257,13 +257,30 @@
 
                 <div class="row g-4">
 
+                    @foreach($categories as $category)
+                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-card d-flex">
+                            <div class="icon flex-shrink-0">
+                                <img src="{{ asset($category->avatar) }}" alt="" width="100px" class="rounded">
+                            </div>
+                            <div>
+                                <h3>{{ $category->name }}</h3>
+                                <p>{{ $category->description }}</p>
+                                <a href="{{ route('services.show', $category->id) }}" class="read-more">{{ __('View Services') }} <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div><!-- End Service Card -->
+                    @endforeach
+
+                    {{--
                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
                         <div class="service-card d-flex">
                             <div class="icon flex-shrink-0">
                                 <i class="bi bi-tools"></i>
                             </div>
                             <div>
-                                <h3>Home Repair</h3>
+                                <h3>Plumbing</h3>
                                 <p>From minor fixes to major renovations, our skilled handymen can handle all your home
                                     repair needs with quality workmanship.</p>
                                 <a href="service-details.html" class="read-more">Read More <i
@@ -296,7 +313,7 @@
                                 <h3>Plumbing</h3>
                                 <p>Expert plumbing solutions for leaks, clogs, installations, and maintenance by certified
                                     professionals.</p>
-                                <a href="service-details.html" class="read-more">Read More <i
+                                <a href="{{ route('services.show', 2) }}" class="read-more">Services <i
                                         class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
@@ -316,6 +333,7 @@
                             </div>
                         </div>
                     </div><!-- End Service Card -->
+                    --}}
 
                 </div>
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Frontend\CartItemController;
 use App\Http\Controllers\Frontend\DashboardController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ProfileController;
@@ -19,6 +20,13 @@ Route::middleware(['auth', 'verified'])
         Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
         Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
         Route::put('/profile/password/update', [ProfileController::class, 'updatePassword'])->name('password.update');
+
+
+        // List Services
+        Route::get('services/{category}', [ServiceController::class, 'show'])->name('services.show');
+
+        // Cart items
+        Route::resource('cart-items', CartItemController::class);
 
 
         // Vendor verification page
