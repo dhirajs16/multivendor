@@ -227,7 +227,7 @@
                 </li>
 
                 {{-- Layout dropdown --}}
-                <li class="nav-item active dropdown">
+                {{-- <li class="nav-item active dropdown">
                     <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown"
                         data-bs-auto-close="false" role="button" aria-expanded="true">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -251,7 +251,7 @@
                             </div>
                         </div>
                     </div>
-                </li>
+                </li> --}}
 
 
                 {{-- category menu --}}
@@ -260,8 +260,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.categories.index') }}">
                             <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <i class="bi bi-house-door"></i>
-                            </span>
+                                <i class="bi bi-tags"></i> </span>
                             <span class="nav-link-title">
                                 {{ __('Categories') }}
                             </span>
@@ -273,8 +272,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.services.vendor-list') }}">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
-                            <i class="bi bi-house-door"></i>
-                        </span>
+                            <i class="bi bi-arrow-left-right"></i> </span>
                         <span class="nav-link-title">
                             {{ __('Vendor & Services') }}
                         </span>
@@ -333,8 +331,8 @@
                                 <a class="dropdown-item"
                                     href="{{ route('admin.vendor-verification-requests.index') }}">
                                     {{ __('Verification Requests') }}
-                                    <span
-                                        class="badge badge-sm bg-yellow-lt text-uppercase ms-auto">{{ 1 }}</span>
+                                    {{-- <span
+                                        class="badge badge-sm bg-yellow-lt text-uppercase ms-auto">{{ 1 }}</span> --}}
                                 </a>
 
                             </div>
@@ -351,6 +349,21 @@
                         <span class="nav-link-title">
                             {{ __('Settings') }}
                         </span>
+                    </a>
+                </li>
+
+                {{-- logout --}}
+                <li class="nav-item">
+
+                    <form method="POST" action="{{ route('admin.logout') }}" class="dropdown-item">
+                        @csrf
+
+                        <button type="submit" class="border-0 bg-transparent py-2 px-3 " style="color:rgb(182, 182, 182)"
+                            onclick="event.preventDefault(); this.closest('form').submit();">
+                            <i class="bi bi-box-arrow-right me-3"></i>{{ __('Logout') }}
+                        </button>
+                    </form>
+                    </span>
                     </a>
                 </li>
 

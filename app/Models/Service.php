@@ -26,4 +26,9 @@ class Service extends Model
     {
         return $this->belongsTo(User::class)->where('user_type', 'vendor');
     }
+
+    public function cartItems()
+    {
+        return $this->hasMany(CartItem::class);
+    }
 }

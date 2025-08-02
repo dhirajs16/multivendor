@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class IsVendorMiddleware
+class IsCustomerMiddleware
 {
     /**
      * Handle an incoming request.
@@ -17,10 +17,11 @@ class IsVendorMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::guard('web')->user()->user_type !== 'vendor') {
-            // NotificationService::ERROR('You are not authorized to access vendor specific pages.');
+        if(Auth::guard('web')->user()->user_type !== 'customer') {
+            // NotificationService::ERROR('You are not authorized to access this pages.');
             abort(403, 'Unauthorized action.');
         }
+
 
         return $next($request);
     }

@@ -4,6 +4,7 @@ use App\Http\Controllers\Frontend\CartItemController;
 use App\Http\Controllers\Frontend\DashboardController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ProfileController;
+use App\Http\Controllers\Frontend\RequestServiceController;
 use App\Http\Controllers\Frontend\ServiceController;
 use App\Http\Controllers\Frontend\VendorVerificationController;
 use App\Models\Service;
@@ -23,10 +24,19 @@ Route::middleware(['auth', 'verified'])
 
 
         // List Services
-        Route::get('services/{category}', [ServiceController::class, 'show'])->name('services.show');
+        Route::get('services/{category}', [ServiceController::class, 'show'])->name('services.show')->middleware('isCustomer');
 
-        // Cart items
-        Route::resource('cart-items', CartItemController::class);
+        Route::middleware(['isCustomer'])->group(function () {
+            // Cart items
+            Route::get('cart-items/{service}/{user}', [CartItemController::class, 'store'])->name('cart-items.store');
+            Route::get('cart-items', [CartItemController::class, 'index'])->name('cart-items.index');
+            Route::delete('cart-items/{id}', [CartItemController::class, 'destroy'])->name('cart-items.destroy');
+
+            Route::get('payment/{cartItem}', [CartItemController::class, 'payment'])->name('payment.index');
+            // Request Service
+            // Route::get('request-service/{cartItem}', [RequestServiceController::class, 'store'])->name('request-service.store');
+            // Route::get('request-service', [RequestServiceController::class, 'index'])->name('request-service.index');
+        });
 
 
         // Vendor verification page

@@ -41,10 +41,18 @@
                                                                 class="badge bg-yellow-lt"
                                                             @endswitch>{{ $vendorVerificationRequest->status }}</span>
                                                     </td>
-                                                    <td>
+                                                    <td class="d-flex gap-2">
                                                         <a
                                                             href="{{ route('admin.vendor-verification-requests.show', $vendorVerificationRequest->id) }}"><i
                                                                 class="bi bi-eye"></i></a>
+
+                                                        <form action="{{ route('admin.vendor-verification-requests.destroy', $vendorVerificationRequest->id) }}"
+                                                            method="POST" class="delete-role-form">
+                                                            @csrf
+                                                            @method('DELETE')
+
+                                                            <button class="btn-link text-decoration-none" type="submit"><i
+                                                                    class="bi bi-trash3 text-danger"></i></i></button>
 
                                                     </td>
                                                 </tr>

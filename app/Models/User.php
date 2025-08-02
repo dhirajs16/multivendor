@@ -70,4 +70,14 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Category::class, 'service_category_id');
     }
+
+    function cartItems(): HasMany
+    {
+        return $this->hasMany(CartItem::class);
+    }
+
+    function requestServices(): HasMany
+    {
+        return $this->hasMany(RequestService::class);
+    }
 }

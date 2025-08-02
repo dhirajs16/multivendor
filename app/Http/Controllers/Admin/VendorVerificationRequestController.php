@@ -89,6 +89,11 @@ class VendorVerificationRequestController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $vendorVerificationRequest = VendorVerification::findOrFail($id);
+        $vendorVerificationRequest->delete();
+
+        NotificationService::DELETED();
+
+        return to_route('admin.vendor-verification-requests.index');
     }
 }

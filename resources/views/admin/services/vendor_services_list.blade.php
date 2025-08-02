@@ -24,7 +24,7 @@
                                                     <th>Description</th>
                                                     <th>Category</th>
                                                     <th>Service Charge</th>
-                                                    <th>Status</th>
+                                                    {{-- <th>Status</th> --}}
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -52,9 +52,9 @@
                                                         <td>
                                                             <span>NRs. {{ $service->service_charge }}</span>
                                                         </td>
-                                                        <td>
+                                                        {{-- <td>
                                                             <span class="badge bg-green-lt">{{ $service->status }}</span>
-                                                        </td>
+                                                        </td> --}}
                                                     </tr>
                                                 @endforeach
                                             </tbody>

@@ -66,15 +66,15 @@
                                     <i class="ti ti-calendar-month"></i>
                                     <span class="text text-heading fw-500">Member Since</span>
                                 </span>
-                                <span class="profile-info-list__info">Jan, 01, 2024</span>
+                                <span class="profile-info-list__info">{{ auth()->user()->created_at->format('Y-m-d') }}</span>
                             </li>
-                            <li class="profile-info-list__item">
+                            {{-- <li class="profile-info-list__item">
                                 <span class="profile-info-list__content flx-align flex-nowrap gap-2">
                                     <i class="ti ti-basket-check"></i>
                                     <span class="text text-heading fw-500">Purchased</span>
                                 </span>
-                                <span class="profile-info-list__info">0 items</span>
-                            </li>
+                                <span class="profile-info-list__info">N/A Services</span>
+                            </li> --}}
                         </ul>
 
                     </div>
@@ -89,11 +89,11 @@
                                         role="tab" aria-controls="pills-personalInfo" aria-selected="true">Personal
                                         Info</button>
                                 </li>
-                                <li class="nav-item" role="presentation">
+                                {{-- <li class="nav-item" role="presentation">
                                     <button class="nav-link font-18 font-heading" id="pills-payouts-tab"
                                         data-bs-toggle="pill" data-bs-target="#pills-payouts" type="button" role="tab"
                                         aria-controls="pills-payouts" aria-selected="false">Payouts</button>
-                                </li>
+                                </li> --}}
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link font-18 font-heading" id="pills-changePassword-tab"
                                         data-bs-toggle="pill" data-bs-target="#pills-changePassword" type="button"

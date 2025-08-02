@@ -6,9 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Title -->
-    <title> Digital Market Place HTML Template</title>
+    <title>@yield('title') | Sewaganj</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets/frontend/images/logo/favicon-two.png') }}">
+    {{-- <link rel="shortcut icon" href="{{ asset('assets/frontend/images/logo/favicon-two.png') }}"> --}}
+        <link rel="icon" href="{{ asset('default/favicon.png') }}">
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/bootstrap.min.css') }}">
@@ -79,7 +80,7 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Sign Up</a></li>
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="{{ route('profile') }}">Profile</a></li>
                             <li><a class="dropdown-item" href="#">Settings</a></li>
                         </ul>
                     </div>

@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
             'name' => 'Ram Sharma',
             'email' => 'ram@gmail.com',
             'password' => bcrypt('12345678'),
+            'country' => 'Nepal',
         ]);
 
         User::create([
@@ -26,6 +27,7 @@ class UserSeeder extends Seeder
             'service_category_id' => 1,
             'vendor_verification' => true,
             'password' => bcrypt('12345678'),
+            'country' => 'Nepal',
             'address' => 'Adarshnagar - 10, Birgunj - Parsa',
             'vendor_rating' => 4.5,
         ]);
@@ -35,6 +37,7 @@ class UserSeeder extends Seeder
             'user_type' => 'vendor',
             'service_category_id' => 2,
             'vendor_verification' => true,
+            'country' => 'Nepal',
             'password' => bcrypt('12345678'),
             'address' => 'Asok Vatika - 10, Birgunj - Parsa',
             'vendor_rating' => 2.5,

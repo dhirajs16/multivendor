@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Frontend\Services\StoreServiceRequest;
 use App\Http\Requests\Frontend\Services\UpdateServiceRequest;
+use App\Models\CartItem;
 use App\Models\Category;
 use App\Models\Service;
 use App\Models\User;
@@ -75,12 +76,13 @@ class ServiceController extends Controller
     {
         // dd($category);
         $services = Service::where('category_id', $category->id)->get();
+        $cartItems = CartItem::where('user_id', auth()->id())->get();
 
         if ($services->isEmpty()) {
             NotificationService::ERROR('No services found for this category.');
         }
 
-        return view('frontend.pages.list-services', compact('category', 'services'));
+        return view('frontend.pages.list-services', compact('category', 'services', 'cartItems'));
     }
 
     /**

@@ -30,8 +30,9 @@
         <div class="container container-tight py-4">
             <div class="text-center mb-4">
                 <a href="{{ route('home') }}" class="navbar-brand navbar-brand-autodark">
-                    <img src="./static/logo.svg" width="110" height="32" alt="SewaGunj"
-                        class="navbar-brand-image">
+                    <img src="{{ asset('assets/frontend/images/logo/logo_with_text.png') }}" width="150px" alt="SewaGunj"
+                        >
+
                 </a>
             </div>
             <div class="card card-md">

@@ -1,4 +1,5 @@
 @extends('frontend.dashboard.layouts.master')
+@section('title', 'Vendor Services')
 @section('content')
     {{-- <div class="table-responsive bg-white">
         <table class="table">

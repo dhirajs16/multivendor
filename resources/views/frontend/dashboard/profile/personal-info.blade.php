@@ -59,7 +59,7 @@
             </div>
         </div>
         <div class="col-sm-6 col-xs-6">
-            <div class="form_box"> <label for="shipping address"
+            <div class="form_box" hidden> <label for="shipping address"
                     class="form-label mb-2 font-18 font-heading fw-600">{{ __('Shipping Address') }}</label>
                 <div class="">
                     <select class="common-input border select_2" id="shipping_address" name="shipping_address">

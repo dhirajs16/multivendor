@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{{ __('Admin Dashboard') }}</title>
 
+    <link rel="icon" type="image/png" href="{{ asset('default/favicon.png') }}">
     <!-- CSS files -->
     <link href="{{ asset('assets/admin/css/tabler.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/admin/css/tabler-flags.min.css') }}" rel="stylesheet" />
