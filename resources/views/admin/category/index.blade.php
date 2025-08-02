@@ -23,7 +23,7 @@
                                                 <th>Avatar</th>
                                                 <th>Name</th>
                                                 <th>Description</th>
-                                                <th>Status</th>
+                                                {{-- <th>Status</th> --}}
                                                 <th class="w-1">Actions</th>
                                             </tr>
                                         </thead>
@@ -40,13 +40,13 @@
                                                             {{ $category->description }}
                                                         </p>
                                                     </td>
-                                                    <td>
-                                                        @if ($category->is_active === true)
+                                                    {{-- <td>
+                                                        @if ($category->is_active == 'active')
                                                             <span class="badge bg-green-lt">active</span>
                                                         @else
                                                             <span class="badge bg-red-lt">inactive</span>
                                                         @endif
-                                                    </td>
+                                                    </td> --}}
                                                     <td class="d-flex align-items-center fs-2 gap-2" style="height: 86px">
 
                                                             <a class="text-decoration-none"

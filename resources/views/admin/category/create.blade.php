@@ -57,10 +57,15 @@
                                     </div>
 
                                     {{-- is active checkbox --}}
-                                    <div class="mb-3 form-check">
-                                        <input type="checkbox" class="form-check-input" id="is_active" name="is_active">
-                                        <label class="form-check-label" for="is_active">{{ __('Active') }}</label>
-                                    </div>
+                                    {{-- <div class="mb-3 form-check">
+                                        <label for="is_active" class="form-label">{{ __('Status') }}</label>
+                                        <select class="form-select" id="is_active" name="is_active" required>
+                                            <option value="" disabled>Select</option>
+                                            <option value="1">{{ __('Active') }}</option>
+                                            <option value="0">{{ __('Inactive') }}</option>
+                                        </select>
+                                        <x-input-error :messages="$errors->get('is_active')" class="mt-2" /></div> --}}
+                                    {{-- <button type="submit">Create</button> --}}
 
                                 </form>
                             </div>

@@ -68,7 +68,8 @@
                                     aria-labelledby="pills-personalInfo-tab" tabindex="0">
 
                                     {{-- Start from here --}}
-                                    khalti
+                                    
+
                                 </div>
 
                             </div>

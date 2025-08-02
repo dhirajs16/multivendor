@@ -26,7 +26,7 @@ class UpdateCategoryRequest extends FormRequest
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'slug' => 'required|string|max:255|unique:categories,slug,' . $this->category->id,
-            'is_active' => 'required|boolean',
+            // 'is_active' => 'required|in:active,inactive',
         ];
     }
 }

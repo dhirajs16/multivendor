@@ -67,11 +67,17 @@
                                         @enderror
                                     </div>
 
-                                    <div class="mb-3 form-check">
-                                        <input type="checkbox" class="form-check-input" id="is_active" name="is_active"
-                                            {{ old('is_active', $category->is_active) ? 'checked' : '' }}>
-                                        <label class="form-check-label" for="is_active">{{ __('Active') }}</label>
-                                    </div>
+                                    {{-- <div class="mb-3">
+                                        <label for="is_active" class="form-label">{{ __('Status') }}</label>
+                                        <select class="form-select @error('is_active') is-invalid @enderror" id="is_active" name="is_active">
+                                            <option value="" disabled>select</option>
+                                            <option value="active" {{ old('is_active', $category->is_active) == 1 ? 'selected' : '' }}>{{ __('Active') }}</option>
+                                            <option value="inactive" {{ old('is_active', $category->is_active) == 0 ? 'selected' : '' }}>{{ __('Inactive') }}</option>
+                                        </select>
+                                        @error('is_active')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div> --}}
 
                                 </form>
                             </div>

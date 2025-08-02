@@ -22,9 +22,9 @@ class VendorVerificationStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id_verification' => ['required', 'file', 'mimes:jpg,jpeg,png,pdf', 'max:2048'],
-            'pan_verification' => ['required', 'file', 'mimes:jpg,jpeg,png,pdf', 'max:2048'],
-            'irc_verification' => ['required', 'file', 'mimes:jpg,jpeg,png,pdf', 'max:2048'],
+            'id_verification' => ['required', 'image', 'max:2048'],
+            'pan_verification' => ['required', 'image', 'max:2048'],
+            'irc_verification' => ['required', 'image', 'max:2048'],
             'service_category_id' => ['required', 'integer', 'exists:categories,id'],
         ];
     }

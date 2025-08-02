@@ -54,7 +54,7 @@ class CategoryController extends Controller implements HasMiddleware
         $category->name = $request->name;
         $category->slug = $request->slug;
         $category->description = $request->description;
-        $category->is_active = $request->has('is_active') ? true : false;
+        // $category->is_active = $request->has('is_active') ? true : false;
         if ($request->hasFile('avatar')) {
             $avatarPath = $this->handleUploadFile($request->file('avatar'));
             $category->avatar = $avatarPath;
@@ -88,7 +88,7 @@ class CategoryController extends Controller implements HasMiddleware
     public function update(Request $request, Category $category)
     {
         $category->update($request->except(['avatar', 'is_active']));
-        $category->is_active = $request->has('is_active') ? true : false;
+        // $category->is_active = $request->has('is_active') ? true : false;
         if ($request->hasFile('avatar')) {
             // Delete old avatar if exists
             if ($category->avatar) {
